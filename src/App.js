@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import AllQuotes from './Pages/AllQuotes';
 import NewQuote from './Pages/NewQuote';
 import QuoteDetail from './Pages/QuoteDetails';
@@ -11,6 +11,7 @@ function App() {
     <>
       <Layout>
         <Routes>
+          <Route path="/" element={<Navigate replace to={'./Quotes'} />} />
           <Route path="/Quotes" exact element={<AllQuotes />} />
           <Route path='/Quotes/:quoteID/*' element={<QuoteDetail />} />
           <Route path="/NewQuote" element={<NewQuote />} />

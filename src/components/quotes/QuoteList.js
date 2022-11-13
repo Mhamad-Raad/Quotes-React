@@ -32,7 +32,7 @@ const QuoteList = (props) => {
         <button onClick={clickHandler}>Sort {isASCSorting ? 'Descending' : 'Ascending'}</button>
       </div>
       <ul className={classes.list}>
-        {props.quotes.map((quote) => (
+        {sortedQuotes.map((quote) => (
           <QuoteItem
             key={quote.id}
             id={quote.id}
