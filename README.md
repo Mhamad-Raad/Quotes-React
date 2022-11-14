@@ -1,5 +1,3 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
 # React Quotes 
 an app where you can comment on quotes and add quotes if you wanted too ;)
 
