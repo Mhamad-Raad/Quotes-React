@@ -1,5 +1,3 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
 # React Quotes 
 an app where you can comment on quotes and add quotes if you wanted too ;)
 
@@ -74,4 +72,4 @@ List of Aknnowledgments goes here
 
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
+This project is [MIT](./LICENSE) licensed.
