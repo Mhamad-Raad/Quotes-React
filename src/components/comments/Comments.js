@@ -21,7 +21,7 @@ const Comments = () => {
   const addedCommentHandler = useCallback(() => {
     sendRequest(quoteID);
   }, [sendRequest, quoteID]);
-  
+
   useEffect(() => {
     sendRequest(quoteID);
   }, [sendRequest, quoteID]);
@@ -32,19 +32,20 @@ const Comments = () => {
       <div className='centered'>
         <LoadingSpinner />
       </div>
-      );
+    );
   }
 
   if (status === 'completed') {
-    comments = <CommentsList comments={ loadedComments } />;
+    comments = <CommentsList comments={loadedComments} />;
   }
-  
-  if (status === 'completed' && (!loadedComments || loadedComments.length === 0)) {
+
+  if (
+    status === 'completed' &&
+    (!loadedComments || loadedComments.length === 0)
+  ) {
     comments = <p className='centered'>No comments were added yet!</p>;
   }
 
- 
-  
   return (
     <section className={classes.comments}>
       <h2>User Comments</h2>
@@ -53,7 +54,9 @@ const Comments = () => {
           Add a Comment
         </button>
       )}
-      {isAddingComment && <NewCommentForm onAddedComment={ addedCommentHandler } />}
+      {isAddingComment && (
+        <NewCommentForm onAddedComment={addedCommentHandler} />
+      )}
       {comments}
     </section>
   );

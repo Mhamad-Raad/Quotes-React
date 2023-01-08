@@ -26,6 +26,16 @@
   color: #212929;
 }
 
+@media only screen and (max-width: 600px) {
+  .item blockquote {
+    font-size: 1.1rem;
+  }
+
+  .item figcaption {
+    font-size: 0.8rem;
+  }
+}
+
 .item p {
   margin: 0;
   margin-bottom: 0.25rem;

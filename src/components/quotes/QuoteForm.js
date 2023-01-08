@@ -12,13 +12,24 @@ const QuoteForm = (props) => {
 
     const enteredAuthor = authorInputRef.current.value;
     const enteredText = textInputRef.current.value;
+
+    if (enteredAuthor === '' || enteredAuthor.length < 5) {
+      alert('Author must be at least 5 characters long');
+      return;
+    }
+
+    if (enteredText === '' || enteredText.length < 5) {
+      alert('Text must be at least 5 characters long');
+      return;
+    }
+
     // optional: Could validate here
     props.onAddQuote({ author: enteredAuthor, text: enteredText });
   }
 
   return (
     <>
-   <Card>
+      <Card>
         <form className={classes.form} onSubmit={submitFormHandler}>
           {props.isLoading && (
             <div className={classes.loading}>
@@ -39,7 +50,7 @@ const QuoteForm = (props) => {
           </div>
         </form>
       </Card>
-      </>
+    </>
   );
 };
 

@@ -6,20 +6,21 @@ import LoadingSpinner from '../components/UI/LoadingSpinner';
 import NoQuotesFound from '../components/quotes/NoQuotesFound';
 
 const Quotes = () => {
-  const { sendRequest, status, data: loadedQuotes, error } = useHtpp(
-    getAllQuotes,
-    true
-  );
+  const {
+    sendRequest,
+    status,
+    data: loadedQuotes,
+    error,
+  } = useHtpp(getAllQuotes, true);
 
   useEffect(() => {
     sendRequest();
   }, [sendRequest]);
 
-
   if (status === 'pending') {
     return (
       <div className='centered'>
-       <LoadingSpinner />
+        <LoadingSpinner />
       </div>
     );
   }
@@ -32,9 +33,7 @@ const Quotes = () => {
     return <NoQuotesFound />;
   }
 
-  return (
-    <QuoteList quotes={ loadedQuotes } />
-  );
-}
+  return <QuoteList quotes={loadedQuotes} />;
+};
 
 export default Quotes;

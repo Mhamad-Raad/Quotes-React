@@ -2,10 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import QuoteForm from '../components/quotes/QuoteForm';
 import useHtpp from '../hooks/use-http';
-import { addQuote } from '../lib/api'; 
-
-
-
+import { addQuote } from '../lib/api';
 
 const NewQuotes = () => {
   const navigate = useNavigate();
@@ -24,6 +21,6 @@ const NewQuotes = () => {
   return (
     <QuoteForm isLoading={status === 'pending'} onAddQuote={addQuoteHandler} />
   );
-}
+};
 
 export default NewQuotes;

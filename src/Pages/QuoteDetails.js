@@ -1,7 +1,7 @@
-import { useParams, Link, Route, Routes } from "react-router-dom";
+import { useParams, Link, Route, Routes } from 'react-router-dom';
 import HighlightedQuote from '../components/quotes/HighlightedQuote';
 import Comments from '../components/comments/Comments';
-import LoadingSpinner from "../components/UI/LoadingSpinner";
+import LoadingSpinner from '../components/UI/LoadingSpinner';
 import useHttp from '../hooks/use-http';
 import { getSingleQuote } from '../lib/api';
 import { useEffect } from 'react';
@@ -9,7 +9,12 @@ import { useEffect } from 'react';
 const QuotesDetails = () => {
   const params = useParams();
 
-  const { sendRequest, status, data: loadedQuote, error } = useHttp(getSingleQuote, true);
+  const {
+    sendRequest,
+    status,
+    data: loadedQuote,
+    error,
+  } = useHttp(getSingleQuote, true);
   const { quoteID } = params;
 
   useEffect(() => {
@@ -34,21 +39,23 @@ const QuotesDetails = () => {
     return <p>No quote found!</p>;
   }
 
-  const JSXDemo = <div className="centered">
-              <Link className="btn--flat" to={`/quotes/${params.quoteID}/comments`}>
-                Load Comments
-              </Link>
-            </div>
+  const JSXDemo = (
+    <div className='centered'>
+      <Link className='btn--flat' to={`/quotes/${params.quoteID}/comments`}>
+        Load Comments
+      </Link>
+    </div>
+  );
 
   return (
     <div>
-      <HighlightedQuote text={quote.text} author={quote.author} />     
-        <Routes>
-          <Route path={`/`} element={JSXDemo} />
-          <Route path={`/comments`} element={<Comments />} />
-        </Routes>
+      <HighlightedQuote text={quote.text} author={quote.author} />
+      <Routes>
+        <Route path={`/`} element={JSXDemo} />
+        <Route path={`/comments`} element={<Comments />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default QuotesDetails;
